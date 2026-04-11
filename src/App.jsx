@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from './components/elements/Button';
 // class Button extends React.Component {
 //   render() {
 //     return ( <button className="h-10 px-6 font-semibold rounded-md bg-yellow-500 text-white hover:bg-gray-700"
@@ -18,15 +19,6 @@ import React from 'react';
 //       )
 // }
 
-const Button = (props) => {
-  const { variant = "bg-yellow-500", children = "Click Me" } = props
-  return ( 
-        <button className={`h-10 px-6 font-semibold rounded-md ${variant} text-white hover:bg-gray-700`}
-            type="submit">
-              {children}
-          </button>
-      )
-}
 
 function App() {
   return (
