@@ -1,6 +1,6 @@
-const Card = ({ children, colors }) => {
+const Card = ({ children, className }) => {
   return (
-    <div className={`w-full max-w-xs ${colors} rounded-2xl shadow-lg p-6`}>
+    <div className={`w-full max-w-xs ${className} rounded-2xl shadow-lg p-6`}>
       {children}
     </div>
   );
