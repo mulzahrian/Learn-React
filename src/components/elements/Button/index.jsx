@@ -1,10 +1,10 @@
 import React from 'react';
     
-const Button = ({ variant = "bg-yellow-500", children = "Click Me", type = "button" }) => {
+const Button = ({ className = "bg-yellow-500", children = "Click Me", type = "button" }) => {
   return (
     <button
       type={type}
-      className={`h-10 px-6 font-semibold rounded-md text-white ${variant} hover:bg-gray-700`}
+      className={`h-10 px-6 font-semibold rounded-md text-white ${className} hover:bg-purple-900`}
     >
       {children}
     </button>
