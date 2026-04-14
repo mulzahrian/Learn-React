@@ -1,14 +1,15 @@
-import React from 'react';
-    
-const Button = ({ className = "bg-yellow-500", children = "Click Me", type = "button" }) => {
+const Button = ({children = "Click Me",type = "button",variant = "primary",className = "",}) => {
+  const variants = {
+    primary: "bg-purple-400 hover:bg-purple-500 text-white",secondary: "bg-gray-200 hover:bg-gray-300 text-black",
+    danger: "bg-red-500 hover:bg-red-600 text-white",
+  };
   return (
     <button
       type={type}
-      className={`h-10 px-6 font-semibold rounded-md text-white ${className} hover:bg-purple-900`}
+      className={`h-10 px-6 font-semibold rounded-md transition ${variants[variant]} ${className}`}
     >
       {children}
     </button>
   );
 };
-
 export default Button;
