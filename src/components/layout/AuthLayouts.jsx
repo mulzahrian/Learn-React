@@ -1,9 +1,12 @@
 import Card from "../elements/card";
 import bgImage from "../../assets/bg-image.jpg";
+import { Link} from "react-router-dom";
+
 
 const AuthLayouts = (props) => {
-  const { children, title } = props;
+  const { children, title, type } = props;
   return (
+    <div className="flex justify-center items-center h-screen bg-blue-100">
     <div
       className="min-h-screen w-full flex items-center justify-center bg-cover bg-center relative"
       style={{ backgroundImage: `url(${bgImage})` }}
@@ -18,10 +21,33 @@ const AuthLayouts = (props) => {
             On Call Management Portal
           </p>
           {children}
+            {navigation({type})}
         </Card>
       </div>
     </div>
+    </div>
   );
 };
+const navigation =({type}) => {
+    if(type === "login"){
+        return(
+            <p className="text-sm text-slate-500 text-center mt-6">
+            Don't have an account?{" "}
+          <Link to="/register" className="text-purple-500 font-semibold hover:text-purple-600 hover:underline transition duration-200">
+            Create one
+          </Link>
+         </p>
+        );
+    } else if(type === "register"){
+        return(
+            <p className="text-sm text-slate-500 text-center mt-6">
+            Already have an account?{" "}
+          <Link to="/login" className="text-purple-500 font-semibold hover:text-purple-600 hover:underline transition duration-200">
+            Login here
+          </Link>
+         </p>
+        );
+    }
+}
 
 export default AuthLayouts;
