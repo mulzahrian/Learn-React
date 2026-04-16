@@ -4,6 +4,7 @@ import { LogOut, Settings, User } from "lucide-react";
 const AvatarDropdown = () => {
   const [open, setOpen] = useState(false);
   const ref = useRef();
+  const email = localStorage.getItem('email');
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -15,6 +16,12 @@ const AvatarDropdown = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const handleLogout = () => {
+      localStorage.removeItem('email');
+      localStorage.removeItem('password');
+      window.location.href = "/login";
+    };
+
   return (
     <div className="relative" ref={ref}>
       <button
@@ -23,7 +30,7 @@ const AvatarDropdown = () => {
       >
         <img src="https://i.pravatar.cc/40" className="w-10 h-10 rounded-full" />
         <div>
-          <p className="text-sm font-semibold">User Name</p>
+          <p className="text-sm font-semibold">{email}</p>
           <p className="text-xs text-gray-500">Admin</p>
         </div>
       </button>
@@ -37,7 +44,7 @@ const AvatarDropdown = () => {
             <Settings size={16} /> Settings
           </button>
           <hr className="my-2" />
-          <button className="flex items-center gap-2 w-full px-4 py-2 text-red-500 hover:bg-red-50">
+          <button className="flex items-center gap-2 w-full px-4 py-2 text-red-500 hover:bg-red-50" onClick={handleLogout}>
             <LogOut size={16} /> Logout
           </button>
         </div>
