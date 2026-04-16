@@ -43,9 +43,6 @@ const ProductsPage = () => {
         </CardProduct>
       ))}
     </div>
-    <div className="flex w-100 justify-center">
-      <Counter></Counter>
-    </div>
     </Fragment>
   );
 };
