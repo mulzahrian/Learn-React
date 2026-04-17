@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { LogOut, Settings, User } from "lucide-react";
+import profile from "../../assets/images/best_mentri.jpg";
+
 
 const AvatarDropdown = () => {
   const [open, setOpen] = useState(false);
@@ -28,7 +30,7 @@ const AvatarDropdown = () => {
         onClick={() => setOpen(!open)}
         className="flex items-center gap-3 hover:bg-gray-100 px-3 py-2 rounded-lg"
       >
-        <img src="https://i.pravatar.cc/40" className="w-10 h-10 rounded-full" />
+        <img src={profile} className="w-11 h-11 rounded-full" />
         <div>
           <p className="text-sm font-semibold">{email}</p>
           <p className="text-xs text-gray-500">Admin</p>

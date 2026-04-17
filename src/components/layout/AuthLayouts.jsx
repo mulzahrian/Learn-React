@@ -13,7 +13,7 @@ const AuthLayouts = (props) => {
     >
       <div className="absolute inset-0 bg-gradient-to-br from-purple-300/40 via-purple-700/30 to-indigo-900/40"></div>
       <div className="relative z-10 w-full flex justify-center">
-        <Card className="bg-white/90">
+        <Card className="bg-white/90" size="sm">
           <h1 className="text-3xl font-bold mb-2 text-purple-500 text-center">
             {title}
           </h1>

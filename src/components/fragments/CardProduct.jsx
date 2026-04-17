@@ -40,11 +40,11 @@ const Body = (props) => {
 }
 
 const Footer = (props) => {
-    const { price } = props;
+    const { price, handleAddToCart, id } = props;
     return(
         <div className="flex items-center justify-between px-5 pb-5">
-          <span className="text-3xl font-bold text-white">${price}</span>
-          <Button className="bg-black text-purple-600 hover:bg-gray-200 font-bold py-2 px-4 rounded">
+          <span className="text-3xl font-bold text-white">Rp.{price}</span>
+          <Button className="bg-black text-purple-600 hover:bg-gray-200 font-bold py-2 px-4 rounded" onClick={() => handleAddToCart(id)}>
             Add to Cart
           </Button>
         </div>

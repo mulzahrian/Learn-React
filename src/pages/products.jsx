@@ -17,7 +17,7 @@ const products = [
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque animi non quod deserunt.",
     price: 299,
     imageSrc: "/images/shoes-1.jpg",
-  },
+  }
 ];
 
 const email = localStorage.getItem('email');
