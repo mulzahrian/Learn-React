@@ -1,4 +1,4 @@
-import { Fragment,useState,useEffect } from "react";
+import { Fragment,useState,useEffect,useRef } from "react";
 import MainLayout from "../components/layout/MainLayout";
 import PageContainer from "../components/fragments/PageContainer";
 import CardProduct from "../components/fragments/CardProduct";
@@ -63,6 +63,7 @@ const Dashboard = () => {
       setCart([...cart, {id, qty: 1}]);
     }
   }
+
 
 
   return (
