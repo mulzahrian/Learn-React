@@ -17,7 +17,7 @@ const Header = (props) => {
           <img
             src={imageSrc}
             alt="Product Image"
-            className="p-8 rounded-t-lg"
+            className="p-8 rounded-t-lg h-60 w-full object-cover"
           />
         </a>
     );
@@ -32,7 +32,7 @@ const Body = (props) => {
               {title}
             </h5>
             <p className="text-white text-sm mt-2">
-              {children}
+              {children.substring(0, 100)}
             </p>
           </a>
         </div> 
