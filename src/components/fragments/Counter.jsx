@@ -12,6 +12,17 @@ class Counter extends React.Component{
         this.setState({ count: this.state.count + 1 });
     }
 
+    componentDidMount(){
+        this.setState({ count: 1 });
+    }
+
+    componentDidUpdate(){
+        if(this.state.count === 10){
+            this.setState({ count: 0 });
+        }
+    }
+
+
     render(){
         return(
             <div className='flex'>

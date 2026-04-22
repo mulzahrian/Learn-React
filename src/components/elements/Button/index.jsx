@@ -5,7 +5,7 @@ const Button = ({children = "Click Me",type = "button",variant = "primary",class
     danger: "bg-red-500 hover:bg-red-600 text-white",
   };
   return (
-    <button
+    <button 
       type={type}
       className={`h-10 px-6 font-semibold rounded-md transition ${variants[variant]} ${className}`} onClick={onClick}
     >
