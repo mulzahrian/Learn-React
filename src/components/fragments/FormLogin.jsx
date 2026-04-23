@@ -1,17 +1,37 @@
+import { useState } from "react";
 import Button from "../elements/Button";
 import InputForm from "../elements/Input";
+import login from "../../services/auth.service";
+import Alert from "../elements/Alert";
+import { useNavigate } from "react-router-dom";
 
 const FormLogin =() => {
+    const [loginFailed, setLoginFailed] = useState("");
+    const [errorKey, setErrorKey] = useState(0);
+    const navigate = useNavigate();
     const handleLogin = (e) => {
         e.preventDefault();
-        localStorage.setItem('email', e.target.email.value);
-        localStorage.setItem('password', e.target.password.value);
-        console.log('email', e.target.email.value, 'password', e.target.password.value);
-        window.location.href = "/dashboard";
+        const credentials = {
+            username: e.target.name.value,
+            password: e.target.password.value,
+        };
+        login(credentials, (status, res) => {
+        if (status) {
+            console.log("Login successful:", res.data.token);
+            localStorage.setItem('token', res.data.token);
+            localStorage.setItem('email', credentials.username);
+            navigate("/dashboard");
+        } else {
+            setLoginFailed(res.response.data || "Login failed");
+            setErrorKey(prev => prev + 1);
+            console.error("Login failed:", res.response.data);
+        }
+    });
     };
     return(
        <form onSubmit={handleLogin}>
-            <InputForm label="Email" name="email" type="email" placeholder="Enter your email" />
+            {loginFailed && <Alert key={errorKey} variant="error" size="sm" message={loginFailed} />}
+            <InputForm label="Name" name="name" type="text" placeholder="Enter your name" />
             <InputForm label="Password" name="password" type="password" placeholder="Enter your password" />
             <Button className="bg-purple-400 w-full" type="submit">Login</Button>
         </form>

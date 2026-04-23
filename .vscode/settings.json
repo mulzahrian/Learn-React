@@ -18,6 +18,9 @@
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": "explicit"
     },
-    "workbench.colorTheme": "Dark Modern"
+    "workbench.colorTheme": "Dark Modern",
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    }
 }
 
