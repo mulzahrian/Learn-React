@@ -30,7 +30,7 @@ const FormLogin =() => {
     };
     return(
        <form onSubmit={handleLogin}>
-            {loginFailed && <Alert key={errorKey} variant="error" size="sm" message={loginFailed} />}
+            {loginFailed && <Alert key={errorKey} variant="error" size="sm" title="Login Failed" message={loginFailed} />}
             <InputForm label="Name" name="name" type="text" placeholder="Enter your name" />
             <InputForm label="Password" name="password" type="password" placeholder="Enter your password" />
             <Button className="bg-purple-400 w-full" type="submit">Login</Button>
