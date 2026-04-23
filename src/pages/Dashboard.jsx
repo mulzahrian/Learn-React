@@ -3,12 +3,15 @@ import MainLayout from "../components/layout/MainLayout";
 import PageContainer from "../components/fragments/PageContainer";
 import CardProduct from "../components/fragments/CardProduct";
 import getProducts  from "../services/product.service";
+import { useLogin } from "../hooks/useLogin";
+
 
 
 const Dashboard = () => {
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [products, setProducts] = useState([]);
+  const username = useLogin();
 
   useEffect(() => {
     setCart(JSON.parse(localStorage.getItem('cart')) || []);

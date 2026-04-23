@@ -7,6 +7,8 @@ import RegisterPage from "./pages/auth/register.jsx";
 import ErrorPage from "./pages/404/404.jsx";
 import ProductsPage from "./pages/products.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
+import Profile from "./pages/profile.jsx";
+
 const router = createBrowserRouter([
     {
         path: "/",
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
     {
         path: "/dashboard",
         element: <Dashboard />,
+    },
+    {
+        path: "/dashboard",
+        element: <Dashboard />,
+    },
+    {
+        path: "/profile",
+        element: <Profile />,
     },
 ]);
 

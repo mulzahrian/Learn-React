@@ -1,7 +1,8 @@
-import { Fragment } from "react";
+import { Fragment, use } from "react";
 import Button from "../components/elements/Button";
 import CardProduct from "../components/fragments/CardProduct";
 import Counter from "../components/fragments/Counter";
+import { useLogin } from "../hooks/useLogin";
 
 const products = [
     {
@@ -25,6 +26,7 @@ const products = [
 const email = localStorage.getItem("email");
 
 const ProductsPage = () => {
+    const username = useLogin();
     const handleLogout = () => {
         localStorage.removeItem("email");
         localStorage.removeItem("password");
@@ -33,7 +35,7 @@ const ProductsPage = () => {
     return (
         <Fragment>
             <div className="flex justify-end h-20 bg-blue-600 text-white items-center px-10">
-                {email}
+                {username}
             </div>
             <Button variant="danger" onClick={handleLogout}>
                 LogOut
