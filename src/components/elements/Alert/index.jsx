@@ -45,17 +45,12 @@ const Alert = ({
                 className={`w-full ${sizeStyle[size]} border rounded-xl shadow-md p-4 ${variantStyle[variant]} bg-white`}
             >
                 <div className="flex justify-between items-start gap-3">
-                    
                     {/* Icon */}
-                    <div>
-                        {icons[variant]}
-                    </div>
+                    <div>{icons[variant]}</div>
 
                     {/* Content */}
                     <div className="flex-1">
-                        {title && (
-                            <p className="font-semibold">{title}</p>
-                        )}
+                        {title && <p className="font-semibold">{title}</p>}
                         <p>{message}</p>
                     </div>
 
