@@ -2,7 +2,7 @@ import { Fragment, useState, useEffect, useRef } from "react";
 import MainLayout from "../components/layout/MainLayout";
 import PageContainer from "../components/fragments/PageContainer";
 import CardProduct from "../components/fragments/CardProduct";
-import getProducts from "../services/product.service";
+import { getProducts } from "../services/product.service";
 import { useLogin } from "../hooks/useLogin";
 
 const Dashboard = () => {
@@ -16,14 +16,10 @@ const Dashboard = () => {
     }, []);
 
     useEffect(() => {
-        getProducts()
-            .then((response) => {
-                setProducts(response);
-                console.log("Products fetched in Dashboard:", response);
-            })
-            .catch((error) => {
-                console.error("Error fetching products in Dashboard:", error);
-            });
+        getProducts((response) => {
+            setProducts(response);
+            console.log("Products fetched in Dashboard:", response);
+        });
     }, []);
 
     useEffect(() => {
@@ -55,7 +51,10 @@ const Dashboard = () => {
                             {products.length > 0 &&
                                 products.map((product) => (
                                     <CardProduct key={product.id}>
-                                        <CardProduct.Header imageSrc={product.image} />
+                                        <CardProduct.Header
+                                            imageSrc={product.image}
+                                            id={product.id}
+                                        />
                                         <CardProduct.Body title={product.id}>
                                             {product.description}
                                         </CardProduct.Body>

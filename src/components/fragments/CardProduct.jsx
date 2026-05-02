@@ -1,4 +1,5 @@
 import Button from "../elements/Button";
+import { Link } from "react-router-dom";
 
 const CardProduct = (props) => {
     const { children } = props;
@@ -10,15 +11,15 @@ const CardProduct = (props) => {
 };
 
 const Header = (props) => {
-    const { imageSrc } = props;
+    const { imageSrc, id } = props;
     return (
-        <a href="#">
+        <Link to={`/dashboards/${id}`}>
             <img
                 src={imageSrc}
                 alt="Product Image"
                 className="p-8 rounded-t-lg h-60 w-full object-cover"
             />
-        </a>
+        </Link>
     );
 };
 
@@ -37,16 +38,20 @@ const Body = (props) => {
 };
 
 const Footer = (props) => {
-    const { price, handleAddToCart, id } = props;
+    const { price, handleAddToCart, id, showButton = true } = props;
+
     return (
         <div className="flex items-center justify-between px-5 pb-5">
             <span className="text-3xl font-bold text-white">Rp.{price}</span>
-            <Button
-                className="bg-black text-purple-600 hover:bg-gray-200 font-bold py-2 px-4 rounded"
-                onClick={() => handleAddToCart(id)}
-            >
-                Add to Cart
-            </Button>
+
+            {showButton && (
+                <Button
+                    className="bg-black text-purple-600 hover:bg-gray-200 font-bold py-2 px-4 rounded"
+                    onClick={() => handleAddToCart(id)}
+                >
+                    Add to Cart
+                </Button>
+            )}
         </div>
     );
 };
